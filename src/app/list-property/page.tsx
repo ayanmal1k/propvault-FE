@@ -147,8 +147,8 @@ export default function ListPropertyPage() {
 
   const validateStep = (step: number): boolean => {
     if (step === 1) return form.title.trim().length > 0 && form.description.trim().length > 0 && form.price > 0;
-    if (step === 2) return form.address.length >= 5 && form.cityId && form.latitude && form.longitude;
-    if (step === 3) return form.areaSize > 0 && form.propertyTypeId;
+    if (step === 2) return form.address.length >= 5 && Boolean(form.cityId) && form.latitude !== null && form.longitude !== null;
+    if (step === 3) return form.areaSize > 0 && Boolean(form.propertyTypeId);
     if (step === 4) return true;
     if (step === 5) return form.images.length > 0;
     if (step === 6) return true;
